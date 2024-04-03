@@ -1,0 +1,14 @@
+{
+	"name": "sunnyside-challenge",
+	"version": "1.1.0",
+	"devDependencies": {
+		"grunt": "~1.0.04",
+		"grunt-contrib-clean": "~2.0.0",
+		"grunt-contrib-concat": "~2.1.0",
+		"grunt-contrib-jshint": "~2.1.0",
+		"grunt-contrib-qunit": "^8.0.1",
+		"grunt-contrib-sass": "~1.0.0",
+		"grunt-contrib-uglify": "~4.0.1",
+		"grunt-contrib-watch": "~1.1.0"
+	}
+}
