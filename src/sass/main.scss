@@ -1,4 +1,111 @@
-.sunny-wrap {
-	background-color: pink;
-	color: yellow;
+@use 'reset';
+@use 'variables';
+@use 'mixins';
+
+/* GLOBAL --------------------- */
+
+body {
+	font-family: "Barlow", sans-serif;
+	font-size: 1.125rem; //18px
+	line-height: 1.125rem; //18px
+	font-weight: 600;
+	font-style: normal;
+	margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Fraunces", serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	font-variation-settings:
+	  "SOFT" 0,
+	  "WONK" 0;
+}
+
+p {
+	line-height: 1.313rem; //21px
+	 a, ol, ul {
+		line-height: inherit;
+	 }
+}
+
+ol, ul {
+	margin: 0;
+}
+
+.smb-two-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.smb-four-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 2fr);
+}
+ 
+/* HOMEPAGE (would normally be it's own file, but since it's an example) ---------- */
+header, main {
+	.sunnyside-inner-wrap {
+		background-color: variables.$headerblue;
+	}
+}
+
+header {
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: variables.$white;
+		padding: 36px 40px 0;
+
+		ul {
+			display: flex;
+			align-items: flex-end;
+			list-style: none;
+
+			a {
+				@include mixins.transition;
+				display: block; //prevents hover cut off
+				padding: 15px 30px;
+				text-decoration: none;
+				border-radius: 40px;
+
+				&:active, &:hover, &:focus {
+					background-color: variables.$hoverblue;
+				}
+			}
+		}
+	}
+}
+
+.sunnyside-inner-wrap {
+	width: 100%;
+	max-width: 1440px;
+	margin: auto;
+	
+	&:not(nav){
+		display: block;
+	}
+}
+
+#sunny-main-banner {
+	position: relative;
+
+	#smb-title {
+		@include mixins.absoluteHorizontalCenter;
+		font-size: 3.125rem; //50px
+		line-height: 3.125rem; //50px
+		color: variables.$white;
+		text-transform: uppercase;
+		text-align: center;
+		letter-spacing: 6px;
+		margin: 2.36em 0 0; //118px
+	}
+
+	#smb-arrow-down {
+		position: relative;
+		margin: 105px auto 0;
+	}
 }

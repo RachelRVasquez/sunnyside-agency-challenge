@@ -1,17 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./dist/css/main.min.css">
-    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
-  </head>
-  <body>
-    <main class="sunny-wrap">
-        <h1>yoooo homes</h1>  
-    </main>
-	<script src="./dist/sunnyside-challenge.min.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rachel's Sunnyside Agency Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/css/main.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,700;0,900;1,700;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <nav class="sunnyside-inner-wrap">
+      <h1>
+        <img src="./assets/images/logo.svg" alt="Sunnyside"/>
+      </h1>
+      <ul>
+        <li><a href="">About</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">Projects</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="sunnyside-inner-wrap" id="sunny-main-banner">
+      <h2 id="smb-title">
+        We are creatives
+        <img src="./assets/images/icon-arrow-down.svg" alt="" role="presentation" id="smb-arrow-down"/>
+      </h2>
+        <picture>
+          <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-header.jpg" />
+          <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-header.jpg" />
+          <img src="./assets/images/desktop/image-header.jpg" alt="" role="presentation" />
+        </picture>
+     </section>
+     <section class="smb-two-grid content-left">
+      <div class="smb-content">
+        <h3>Transform your brand</h3>
+        <p>We are a full-service creative agency specializing in helping brands grow fast. Engage your clients through 
+          compelling visuals that do most of the marketing for you.</p>
+        <a href="" class="cta-learn-more cta-hover-yellow">Learn more</a>
+      </div>
+      <div class="smb-img">
+        <picture>
+          <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-transform.jpg" />
+          <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-transform.jpg" />
+          <img src="./assets/images/desktop/image-transform.jpg" alt="" role="presentation" />
+        </picture>
+      </div>
+     </section>
+     <section class="smb-two-grid content-right">
+      <div class="smb-img">
+        <picture>
+          <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-stand-out.jpg" />
+          <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-stand-out.jpg" />
+          <img src="./assets/images/desktop/image-stand-out.jpg" alt="" role="presentation" />
+        </picture>
+      </div>
+      <div class="smb-content">
+        <h3>Stand out to the right audience</h3>
+        <p>Using a collaborative formula of designers, researchers, photographers, videographers, and copyrighters,
+          we'll build and extend your brand in digital places.</p>
+        <a href="" class="cta-learn-more cat-hover-pink">Learn more</a>
+      </div>
+     </section>
+     <section class="smb-two-grid content-overlap">
+      <div class="smb-content">
+        <h3>Graphic Design</h3>
+        <p>Great design makes you memorable. We deliver artwork that underscores your brand message and captures
+          potential clients' attention.</p>
+          <picture>
+            <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-graphic-design.jpg" />
+            <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-graphic-design.jpg" />
+            <img src="./assets/images/desktop/image-graphic-design.jpg" alt="" role="presentation" />
+          </picture>
+      </div>
+      <div class="smb-content">
+        <h3>Photography</h3>
+        <p>Increase your credibility by getting the most stunning, high-quality photos that improve your
+          business image.</p>
+          <picture>
+            <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-photography.jpg" />
+            <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-photography.jpg" />
+            <img src="./assets/images/desktop/image-photography.jpg" alt="" role="presentation" />
+          </picture>
+      </div>
+     </section>
+     <section id="smb-testimonials">
+      <!-- potential slider opportunity -->
+      <h2 class="smb-testimonials-title">Client testimonials</h2>
+      <div class="smb-testimonial">
+        <img src="" role="presentation" alt="" class="smb-tsm-avatar"/>
+        <p class="smb-tsm-blurb"></p>
+        <h3 class="smb-tsm-author"></h3>
+        <p class="smb-tsm-title"></p>
+      </div>
+      <div class="smb-testimonial">
+        <img src="" role="presentation" alt="" class="smb-tsm-avatar"/>
+        <p class="smb-tsm-blurb"></p>
+        <h3 class="smb-tsm-author"></h3>
+        <p class="smb-tsm-title"></p>
+      </div>
+      <div class="smb-testimonial">
+        <img src="" role="presentation" alt="" class="smb-tsm-avatar"/>
+        <p class="smb-tsm-blurb"></p>
+        <h3 class="smb-tsm-author"></h3>
+        <p class="smb-tsm-title"></p>
+      </div>
+     </section>
+     <section class="smb-four-grid" aria-hidden="true">
+      <!-- visuals that serve no content purposes whatsoever, hide from SR, possible slider opportunity -->
+      <picture>
+        <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-gallery-milkbottles.jpg" />
+        <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-gallery-milkbottles.jpg" />
+        <img src="./assets/images/desktop/image-gallery-milkbottles.jpg" alt="" role="presentation" />
+      </picture>
+      <picture>
+        <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-gallery-orange.jpg" />
+        <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-gallery-orange.jpg" />
+        <img src="./assets/images/desktop/image-gallery-orange.jpg" alt="" role="presentation" />
+      </picture>
+      <picture>
+        <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-gallery-cone.jpg" />
+        <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-gallery-cone.jpg" />
+        <img src="./assets/images/desktop/image-gallery-cone.jpg" alt="" role="presentation" />
+      </picture>
+      <picture>
+        <source media="(max-width: 755px)" srcset="./assets/images/mobile/image-gallery-sugarcubes.jpg" />
+        <source media="(min-width: 756px)" srcset="./assets/images/desktop/image-gallery-sugarcubes.jpg" />
+        <img src="./assets/images/desktop/image-gallery-sugarcubes.jpg" alt="" role="presentation" />
+      </picture>
+     </section>
+  </main>
+  <footer>
+    <div class="sunnyside-inner-wrap">
+      Footer stuff here
+    </div>
+  </footer>
+  <script src="./dist/sunnyside-challenge.min.js"></script>
+</body>
+
 </html>

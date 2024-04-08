@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				src: ['src/**/*.js'],
-				dest: 'dist/<%= pkg.name %>.js'
+				dest: 'dist/js/<%= pkg.name %>.js'
 			}
 		},
 		uglify: {
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+					'dist/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
 				}
 			}
 		},
@@ -90,9 +90,10 @@ module.exports = function (grunt) {
 
 	// grunt.registerTask('test', ['jshint', 'qunit']);
 
-	// grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'sass']);
-	//@todo: add back in uglify later
-	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify']);
+	// grunt.registerTask('default', ['clean', 'sass','jshint', 'qunit', 'concat', 'uglify']);
+
+	//@todo: Add back in other tasks when I have actual JS
+	grunt.registerTask('default', ['clean', 'sass']);
 
 	grunt.registerTask('dev', [
 		'watch'
