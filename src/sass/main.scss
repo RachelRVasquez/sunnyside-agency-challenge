@@ -1,34 +1,36 @@
 @use 'reset';
-@use 'variables';
-@use 'mixins';
+@use 'variables' as v;
+@use 'mixins' as mx;
 
 /* GLOBAL --------------------- */
 
 body {
 	font-family: "Barlow", sans-serif;
-	font-size: 1.125rem; //18px
-	line-height: 1.125rem; //18px
 	font-weight: 600;
 	font-style: normal;
+	font-optical-sizing: auto;
 	margin: 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: "Fraunces", serif;
-	font-optical-sizing: auto;
 	font-style: normal;
 	margin: 0;
 	padding: 0;
-	font-variation-settings:
-	  "SOFT" 0,
-	  "WONK" 0;
 }
 
 p {
+	font-size: 1.125rem; //18px
 	line-height: 1.313rem; //21px
+
 	 a, ol, ul {
+		font-size: inherit;
 		line-height: inherit;
 	 }
+}
+
+a {
+	@include mx.transition;
 }
 
 ol, ul {
@@ -36,19 +38,92 @@ ol, ul {
 }
 
 .smb-two-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	@include mx.tablet-up {
+		display: grid;
+		place-items: center;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.smb-content {
+		width: 50%;
+		min-width: 440px;
+ 		height: 50%;
+
+		h3 {
+			font-size: 2.25rem; //36px
+			line-height: 2.5rem; //40px
+			color: v.$headingblue;
+		}
+
+		p {
+			color: v.$descblue;
+			line-height: 1.8rem;
+			margin-top: 1.875rem; //30px
+		}
+
+		.cta-learn-more {
+			margin-top: 54px;
+		}
+
+	}
 }
 
 .smb-four-grid {
 	display: grid;
-	grid-template-columns: repeat(4, 2fr);
+	grid-template-columns: repeat(2, 1fr);
+
+	@include mx.tablet-up {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.cta-learn-more {
+	display: block;
+	@include mx.title-900;
+	font-size: .97rem; //16px
+	line-height: .97rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: v.$headingblue;
+	text-decoration: none;
+	padding-left: 5px;
+	max-width: 140px;
+
+	&:after {
+		@include mx.transition;
+		background-color: transparent;
+		display: block;
+		content: "";
+		height: 8px;
+		width: 0%;
+		margin-left: -5px;
+		margin-top: -5px;
+		border-radius: 5px;
+	}
+
+	&.yellow {
+		&:after {
+			background-color: v.$yellow;
+		}
+	}
+
+	&.softred {
+		&:after {
+			background-color: v.$softred;
+		}
+	}
+
+	&:hover, &:active, &:focus {
+		&:after {
+			width: 100%;
+		}
+	}
 }
  
 /* HOMEPAGE (would normally be it's own file, but since it's an example) ---------- */
 header, main {
 	.sunnyside-inner-wrap {
-		background-color: variables.$headerblue;
+		background-color: v.$headerblue;
 	}
 }
 
@@ -57,7 +132,7 @@ header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		color: variables.$white;
+		color: v.$white;
 		padding: 36px 40px 0;
 
 		ul {
@@ -66,14 +141,13 @@ header {
 			list-style: none;
 
 			a {
-				@include mixins.transition;
 				display: block; //prevents hover cut off
 				padding: 15px 30px;
 				text-decoration: none;
 				border-radius: 40px;
 
 				&:active, &:hover, &:focus {
-					background-color: variables.$hoverblue;
+					background-color: v.$hoverblue;
 				}
 			}
 		}
@@ -94,10 +168,10 @@ header {
 	position: relative;
 
 	#smb-title {
-		@include mixins.absoluteHorizontalCenter;
+		@include mx.absoluteHorizontalCenter;
 		font-size: 3.125rem; //50px
 		line-height: 3.125rem; //50px
-		color: variables.$white;
+		color: v.$white;
 		text-transform: uppercase;
 		text-align: center;
 		letter-spacing: 6px;

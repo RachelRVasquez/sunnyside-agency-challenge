@@ -1,13 +1,24 @@
 /* RESPONSIVE ---------------- */
 
+//Breakpoints borrowed from Bootstrap 5.3
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+//@todo: get working with grid-breakpoints, map_get?
 @mixin tablet-up {
-	@media (min-width: #{$md}) {
+	@media (min-width: 768px) {
 		@content;
 	}
 }
 
 @mixin large-up {
-	@media (min-width: #{$lg}) {
+	@media (min-width: 992px) {
 		@content;
 	}
 }
@@ -19,10 +30,12 @@
 }
 
 @mixin title-700 {
+	font-family: "Fraunces", serif;
 	font-weight: 700;
 }
 
 @mixin title-900 {
+	font-family: "Fraunces", serif;
 	font-weight: 900;
 }
 
