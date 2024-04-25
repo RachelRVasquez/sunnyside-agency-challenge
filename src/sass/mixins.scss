@@ -1,24 +1,16 @@
+//Note: Don't like using this here and then in main...research
+@use 'variables' as v;
+
 /* RESPONSIVE ---------------- */
 
-//Breakpoints borrowed from Bootstrap 5.3
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-);
-
-//@todo: get working with grid-breakpoints, map_get?
 @mixin tablet-up {
-	@media (min-width: map-get($grid-breakpoints, md)) {
+	@media (min-width: map-get(v.$grid-breakpoints, md)) {
 		@content;
 	}
 }
 
 @mixin large-up {
-	@media (min-width: map-get($grid-breakpoints, lg)) {
+	@media (min-width: map-get(v.$grid-breakpoints, lg)) {
 		@content;
 	}
 }
@@ -40,6 +32,13 @@ $grid-breakpoints: (
 }
 
 /* UTILITIES  ---------------- */
+
+@mixin max-width(){
+	width: 100%;
+	max-width: v.$maxwidth;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 @mixin remove-btn-defaults() {
 	padding:    0;
@@ -63,4 +62,11 @@ $grid-breakpoints: (
 	position: absolute;
 	left: 50%;
     transform: translateX(-50%);
+}
+
+@mixin absoluteXYCenter() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }

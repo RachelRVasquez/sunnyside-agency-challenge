@@ -4,6 +4,15 @@
 
 /* GLOBAL --------------------- */
 
+html {
+	font-size: 16px;
+
+	// Magic:
+	@media (max-width: 1000px) {
+		font-size: calc(12px + .4vw);
+	}
+}
+
 body {
 	font-family: "Barlow", sans-serif;
 	font-weight: 600;
@@ -37,17 +46,45 @@ ol, ul {
 	margin: 0;
 }
 
+.smb-two-grid,
+.smb-four-grid {
+	@include mx.max-width;
+}
+
 .smb-two-grid {
-	@include mx.tablet-up {
-		display: grid;
-		place-items: center;
+	position: relative;
+	display: grid;
+	place-items: center;
+	grid-template-columns: 1fr;
+
+	@include mx.large-up {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
+	&:not(.content-overlap) {
+		.smb-content {
+			@include mx.absoluteXYCenter;
+			z-index: 1;
+			padding: 1.5rem;
+			background: rgb(255 255 255 / 80%);
+			min-width: 90%;
+
+			@include mx.large-up {
+				position: static;
+				padding: 0;
+				background: none;
+				transform: translate(0);
+				min-width: none;
+			}
+		}
+	}
+
 	.smb-content {
-		width: 50%;
-		min-width: 440px;
- 		height: 50%;
+		@include mx.large-up {
+			width: 50%;
+			min-width: 440px;
+ 			// height: 50%;
+		}
 
 		h3 {
 			font-size: 2.25rem; //36px
@@ -65,6 +102,15 @@ ol, ul {
 			margin-top: 54px;
 		}
 
+	}
+
+	.smb-img {
+		width: 100%;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 }
 
@@ -155,8 +201,7 @@ header {
 }
 
 .sunnyside-inner-wrap {
-	width: 100%;
-	max-width: 1440px;
+	@include mx.max-width;
 	margin: auto;
 	
 	&:not(nav){
