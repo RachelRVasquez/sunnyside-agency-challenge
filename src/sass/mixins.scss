@@ -12,13 +12,13 @@ $grid-breakpoints: (
 
 //@todo: get working with grid-breakpoints, map_get?
 @mixin tablet-up {
-	@media (min-width: 768px) {
+	@media (min-width: map-get($grid-breakpoints, md)) {
 		@content;
 	}
 }
 
 @mixin large-up {
-	@media (min-width: 992px) {
+	@media (min-width: map-get($grid-breakpoints, lg)) {
 		@content;
 	}
 }
