@@ -21,7 +21,12 @@ body {
 	margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: "Fraunces", serif;
 	font-style: normal;
 	margin: 0;
@@ -32,18 +37,25 @@ p {
 	font-size: 1.125rem; //18px
 	line-height: 1.313rem; //21px
 
-	 a, ol, ul {
+	a,
+	ol,
+	ul {
 		font-size: inherit;
 		line-height: inherit;
-	 }
+	}
 }
 
 a {
 	@include mx.transition;
 }
 
-ol, ul {
+ol,
+ul {
 	margin: 0;
+}
+
+.sr-only {
+	@include mx.screen-reader-only;
 }
 
 .smb-two-grid,
@@ -74,7 +86,7 @@ ol, ul {
 				padding: 0;
 				background: none;
 				transform: translate(0);
-				min-width: none;
+				min-width: 440px;
 			}
 		}
 	}
@@ -82,8 +94,8 @@ ol, ul {
 	.smb-content {
 		@include mx.large-up {
 			width: 50%;
-			min-width: 440px;
- 			// height: 50%;
+			// min-width: 440px;
+			// height: 50%;
 		}
 
 		h3 {
@@ -159,21 +171,78 @@ ol, ul {
 		}
 	}
 
-	&:hover, &:active, &:focus {
+	&:hover,
+	&:active,
+	&:focus {
 		&:after {
 			width: 100%;
 		}
 	}
 }
- 
+
 /* HOMEPAGE (would normally be it's own file, but since it's an example) ---------- */
-header, main {
+header,
+main {
 	.sunnyside-inner-wrap {
 		background-color: v.$headerblue;
 	}
 }
 
 header {
+	.hamburger {
+		@include mx.remove-btn-defaults;
+		position: relative;
+		width: 50px;
+		height: 50px;
+		padding: 1rem;
+		z-index: 20;
+
+		@include mx.tablet-up {
+			display: none;
+		}
+
+		.ham-bar {
+			@include mx.absoluteXYCenter;
+			transition: transform .6s, opacity .8s, top .6s;
+			width: 70%;
+			height: 4px;
+			background-color: #fff;
+			border-radius: 25px;
+
+			&.top {
+				top: 25%;
+			}
+
+			&.bottom {
+				top: 75%;
+			}
+		}
+
+		&.active {
+			.ham-bar {
+
+				&.top,
+				&.bottom {
+					top: 50%;
+				}
+
+				&.top {
+					transform: translate(-50%, -50%) rotate(-315deg);
+				}
+
+				&.middle {
+					opacity: 0;
+				}
+
+				&.bottom {
+					transform: translate(-50%, -50%) rotate(-225deg);
+				}
+			}
+
+
+		}
+	}
+
 	nav {
 		display: flex;
 		align-items: center;
@@ -183,8 +252,38 @@ header {
 
 		ul {
 			display: flex;
-			align-items: flex-end;
+			flex-direction: column;
 			list-style: none;
+
+			@include mx.tablet-up {
+				flex-direction: row;
+				align-items: flex-end;
+			}
+
+			&.off-screen-mobile {
+				@include mx.mobile-only {
+					position: fixed;
+					top: 0;
+					right: -85%;
+					height: 100vh;
+					width: 85%;
+					background-color: darken(v.$headerblue, 50%);
+					transition: right .5s;
+					z-index: 10;
+					align-items: center;
+					padding: 15vh 0 0;
+				}
+
+				&.active {
+					@include mx.mobile-only {
+						right: 0;
+					}
+				}
+
+				 a {
+					font-size: 1.5rem;
+				 }
+			}
 
 			a {
 				display: block; //prevents hover cut off
@@ -192,7 +291,9 @@ header {
 				text-decoration: none;
 				border-radius: 40px;
 
-				&:active, &:hover, &:focus {
+				&:active,
+				&:hover,
+				&:focus {
 					background-color: v.$hoverblue;
 				}
 			}
@@ -203,8 +304,8 @@ header {
 .sunnyside-inner-wrap {
 	@include mx.max-width;
 	margin: auto;
-	
-	&:not(nav){
+
+	&:not(nav) {
 		display: block;
 	}
 }
@@ -225,6 +326,10 @@ header {
 
 	#smb-arrow-down {
 		position: relative;
-		margin: 105px auto 0;
+		margin: 85px auto 0;
+
+		@include mx.tablet-up {
+			margin-top: 105px;
+		}
 	}
 }

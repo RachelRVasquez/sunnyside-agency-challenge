@@ -90,10 +90,7 @@ module.exports = function (grunt) {
 
 	// grunt.registerTask('test', ['jshint', 'qunit']);
 
-	// grunt.registerTask('default', ['clean', 'sass','jshint', 'qunit', 'concat', 'uglify']);
-
-	//@todo: Add back in other tasks when I have actual JS
-	grunt.registerTask('default', ['clean', 'sass']);
+	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify']);
 
 	grunt.registerTask('dev', [
 		'watch'

@@ -19,10 +19,14 @@
 <body>
   <header>
     <nav class="sunnyside-inner-wrap">
-      <h1>
-        <img src="./assets/images/logo.svg" alt="Sunnyside"/>
-      </h1>
-      <ul>
+      <img src="./assets/images/logo.svg" alt="Sunnyside"/>
+      <button class="hamburger" aria-controls="site-menu" aria-expanded="false">
+        <div class="ham-bar top"></div>
+        <div class="ham-bar middle"></div>
+        <div class="ham-bar bottom"></div>
+        <span class="sr-only">Site Menu</span>
+      </button>
+      <ul id="site-menu" class="off-screen-mobile">
         <li><a href="">About</a></li>
         <li><a href="">Services</a></li>
         <li><a href="">Projects</a></li>
@@ -145,7 +149,7 @@
       Footer stuff here
     </div>
   </footer>
-  <script src="./dist/sunnyside-challenge.min.js"></script>
+  <script src="./dist/js/sunnyside-challenge.min.js"></script>
 </body>
 
 </html>
