@@ -9,6 +9,7 @@
 	hamburger.addEventListener('click', () => {
 		hamburger.classList.toggle('active');
 		headerMenu.classList.toggle('active');
+		document.body.classList.toggle('mobile-menu-active');
 
 		if (hamburger.getAttribute('aria-expanded') === 'true') {
 			hamburger.setAttribute('aria-expanded', 'false');
