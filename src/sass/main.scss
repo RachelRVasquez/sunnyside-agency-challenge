@@ -32,7 +32,7 @@ h4,
 h5,
 h6 {
 	font-family: "Fraunces", serif;
-	font-style: normal;
+	font-weight: 900;
 	margin: 0;
 	padding: 0;
 }
@@ -65,7 +65,7 @@ ul {
 /* HEADER (would normally be it's own file, but since it's an example) ---------- */
 header,
 main {
-	.sunnyside-inner-wrap {
+	.sunnyside-inner-wrap:not(#smb-testimonials) {
 		background-color: v.$headerblue;
 	}
 }
@@ -154,6 +154,10 @@ header {
 					z-index: 10;
 					align-items: center;
 					padding: 15vh 0 0;
+
+					a {
+						font-size: 1.5rem;
+					}
 				}
 
 				&.active {
@@ -161,10 +165,7 @@ header {
 						right: 0;
 					}
 				}
-
-				a {
-					font-size: 1.5rem;
-				}
+				
 			}
 
 			a {
@@ -250,6 +251,22 @@ header {
 				transform: translate(0);
 				min-width: 440px;
 			}
+
+			h3 {
+				font-size: 2.25rem; //36px
+				line-height: 2.5rem; //40px
+				color: v.$headingblue;
+			}
+
+			p {
+				color: v.$descblue;
+				line-height: 1.8rem;
+				margin-top: 1.875rem; //30px
+			}
+	
+			.cta-learn-more {
+				margin-top: 54px;
+			}
 		}
 	}
 
@@ -272,38 +289,44 @@ header {
 			bottom: 15%;
 			width: 80%;
 			text-align: center;
+
+			@include mx.tablet-up {
+				bottom: 20%;
+				width: 50%;
+			}
+
+			@include mx.large-up {
+				bottom: 10%;
+				width: 75%;
+			}
 			
 			h3, p {
 				color: inherit;
 			}
 
-			@include mx.tablet-up {
-				bottom: 20%;
-				width: 45%;
+			h3 {
+				font-size: 1.8rem;
+				line-height: 1.4rem;
+
+				@include mx.large-up {
+					font-size: 1.6rem;
+					line-height: 1.2rem;
+				}
 			}
 
-			@include mx.large-up {
-				bottom: 10%;
-				width: 60%;
+			p {
+				font-size: 1.3rem;
+				line-height: 1.8rem;
+				font-weight: 700;
+				margin-top: 2em;
+
+				@include mx.large-up {
+					font-size: 1.1rem;
+					line-height: 1.5rem;
+					min-height: 72px;
+				}
 			}
-		}
-	}
-
-	.smb-content {
-		h3 {
-			font-size: 2.25rem; //36px
-			line-height: 2.5rem; //40px
-			color: v.$headingblue;
-		}
-
-		p {
-			color: v.$descblue;
-			line-height: 1.8rem;
-			margin-top: 1.875rem; //30px
-		}
-
-		.cta-learn-more {
-			margin-top: 54px;
+			
 		}
 	}
 
@@ -370,3 +393,63 @@ header {
 		}
 	}
 }
+
+#smb-testimonials {
+	padding: 163px 2%;
+	background: v.$bgoffwhite;
+
+	.smb-test-flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+
+		@include mx.tablet-up {
+			flex-direction: row;
+		}
+	}
+}
+
+.smb-testimonials-title {
+	color: v.$lightgrey;
+	text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 6rem;
+}
+
+.smb-testimonial {
+	text-align: center;
+	padding: 0 2%;
+
+	.smb-tsm-avatar {
+		display: block;
+		margin: 0 auto 64px;
+		width: 73px;
+		height: 73px;
+		border-radius: 100%;
+	}
+
+	.smb-tsm-blurb {
+		line-height: 1.7rem;
+		min-width: 350px;
+		min-height: 80px;
+		color: v.$descblue;
+	}
+
+	.smb-tsm-author {
+		@include mx.title-900;
+		color: v.$headingblue;
+		margin-top: 4.4rem;
+	}
+
+	.smb-tsm-title {
+		color: v.$lightgrey;
+		font-size: 1rem;
+		line-height: 1rem;
+		margin-top: .7em;
+	}
+}
+
