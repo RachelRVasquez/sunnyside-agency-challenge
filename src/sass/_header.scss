@@ -1,0 +1,121 @@
+/* HEADER ---------- */
+header,
+main {
+	.sunnyside-inner-wrap:not(#smb-testimonials) {
+		background-color: $headerblue;
+	}
+}
+
+header {
+	.hamburger {
+		@include remove-btn-defaults;
+		position: relative;
+		width: 50px;
+		height: 50px;
+		padding: 1rem;
+		z-index: 20;
+
+		@include tablet-up {
+			display: none;
+		}
+
+		.ham-bar {
+			@include absoluteXYCenter;
+			transition: transform .6s, opacity .8s, top .6s;
+			width: 70%;
+			height: 4px;
+			background-color: #fff;
+			border-radius: 25px;
+
+			&.top {
+				top: 25%;
+			}
+
+			&.bottom {
+				top: 75%;
+			}
+		}
+
+		&.active {
+			.ham-bar {
+
+				&.top,
+				&.bottom {
+					top: 50%;
+				}
+
+				&.top {
+					transform: translate(-50%, -50%) rotate(-315deg);
+				}
+
+				&.middle {
+					opacity: 0;
+				}
+
+				&.bottom {
+					transform: translate(-50%, -50%) rotate(-225deg);
+				}
+			}
+
+
+		}
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: $white;
+		padding: 36px 40px 0;
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			list-style: none;
+
+			@include tablet-up {
+				flex-direction: row;
+				align-items: flex-end;
+			}
+
+			&.off-screen-mobile {
+				@include mobile-only {
+					position: fixed;
+					top: 0;
+					right: -85%;
+					height: 100vh;
+					width: 85%;
+					background-color: darken($headerblue, 50%);
+					transition: right .5s;
+					z-index: 10;
+					align-items: center;
+					padding: 15vh 0 0;
+
+					a {
+						font-size: 1.5rem;
+					}
+				}
+
+				&.active {
+					@include mobile-only {
+						right: 0;
+					}
+				}
+				
+			}
+
+			a {
+				display: block; //prevents hover cut off
+				padding: 15px 30px;
+				text-decoration: none;
+				border-radius: 40px;
+
+				&:active,
+				&:hover,
+				&:focus {
+					background-color: $hoverblue;
+				}
+			}
+		}
+	}
+}

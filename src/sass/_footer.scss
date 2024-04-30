@@ -1,0 +1,44 @@
+/* FOOTER ---------- */
+
+footer {
+	.sunnyside-inner-wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: $bgcyan;
+		color: lighten($textcyan, 10%);
+		padding: 78px 0;
+	}
+
+	.footer-logo {
+		inline-size: 170px;
+		block-size: 38px;
+		fill: lighten($textcyan, 5%);
+	}
+
+	.footer-links {
+		list-style: none;
+		padding: 0;
+		margin: 46px 0 92px;
+
+		li {
+			padding: 0 2rem;
+		}
+	}
+
+	.footer-links,
+	.social {
+		display: flex;
+
+		a {
+			font-size: 1.2rem;
+			text-decoration: none;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $white;
+			}
+		}
+	}
+}

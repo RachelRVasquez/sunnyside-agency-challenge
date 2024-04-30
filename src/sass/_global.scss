@@ -1,0 +1,68 @@
+/* GLOBAL --------------------- */
+
+html {
+	font-size: 16px;
+
+	// Magic:
+	@media (max-width: 1000px) {
+		font-size: calc(12px + .4vw);
+	}
+}
+
+body {
+	font-family: "Barlow", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-optical-sizing: auto;
+	margin: 0;
+
+	&.mobile-menu-active {
+		overflow: hidden;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Fraunces", serif;
+	font-weight: 900;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-size: 1.125rem; //18px
+	line-height: 1.313rem; //21px
+
+	a,
+	ol,
+	ul {
+		font-size: inherit;
+		line-height: inherit;
+	}
+}
+
+a {
+	@include transition;
+}
+
+ol,
+ul {
+	margin: 0;
+}
+
+.sr-only {
+	@include screen-reader-only;
+}
+
+.sunnyside-inner-wrap {
+	@include max-width;
+	margin: auto;
+
+	&:not(nav) {
+		display: block;
+	}
+}
