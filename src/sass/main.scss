@@ -395,8 +395,13 @@ header {
 }
 
 #smb-testimonials {
-	padding: 163px 2%;
+	padding: 115px 2%;
 	background: v.$bgoffwhite;
+
+	@include mx.large-up {
+		padding-top: 163px;
+		padding-bottom: 163px;
+	}
 
 	.smb-test-flex {
 		display: flex;
@@ -405,8 +410,9 @@ header {
 		align-items: center;
 		text-align: center;
 
-		@include mx.tablet-up {
-			flex-direction: row;
+		@include mx.large-up {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 }
@@ -422,27 +428,44 @@ header {
 
 .smb-testimonial {
 	text-align: center;
-	padding: 0 2%;
+	padding: 75px 2% 0;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	@include mx.large-up {
+		padding: 0 2%;
+	}
 
 	.smb-tsm-avatar {
 		display: block;
-		margin: 0 auto 64px;
+		margin: 0 auto 2rem; 
 		width: 73px;
 		height: 73px;
 		border-radius: 100%;
+
+		@include mx.large-up {
+			margin-bottom: 4rem; //64px
+		}
 	}
 
 	.smb-tsm-blurb {
 		line-height: 1.7rem;
-		min-width: 350px;
-		min-height: 80px;
 		color: v.$descblue;
+
+		@include mx.large-up {
+			min-height: 110px;
+		}
 	}
 
 	.smb-tsm-author {
 		@include mx.title-900;
 		color: v.$headingblue;
-		margin-top: 4.4rem;
+
+		@include mx.large-up {
+			margin-top: 4.4rem;
+		}
 	}
 
 	.smb-tsm-title {
